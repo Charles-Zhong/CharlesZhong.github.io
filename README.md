@@ -1,4 +1,4 @@
 CharlesZhong Blog
 ========
 
-### [View Live CharlesZhong Blog &rarr;](https://CharlesZhong.github.io)
+### [View Live CharlesZhong Blog &rarr;](https://xiaohao.github.io)
