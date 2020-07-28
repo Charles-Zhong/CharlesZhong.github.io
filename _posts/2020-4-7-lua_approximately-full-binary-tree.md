@@ -21,6 +21,7 @@ tags:
 因为Lua有个table的存储数据的数据结构，所有的内容都是以这个为基准来设计高级的存储结构，是按照key-value的形式存储，而key可以是任意值（除了nil），也就是说可以设计出数组，也可以设计出字典的结构。
 
 设计的数据结构在lua中为下面的表示
+
 ``` Lua
 self.guess_recursion_list = 
 {
@@ -54,6 +55,7 @@ graph BT
 ```
 
 最外层的[]内的为树的度degree，最里面的[]为树的顺序号，则在lua实际的实现中就是：
+
 ``` Lua
 function CreateRecursionList(degree)
   if degree > 0 then
@@ -88,6 +90,7 @@ CreateRecursionList(5)
 如果是用链表的形式去实现的话，也可以，但是下层的节点就不知道具体的位置
 
 链表实现：
+
 ``` Lua
 local BinaryTreeNode = {}
 function BinaryTreeNode:SetData(data)
@@ -128,6 +131,7 @@ CreateBinaryTree(5)
 ```
 
 最后实现的数据结构为：
+
 ``` Lua
 -- 这里数量太多了  只写了两层
 self.guess_binary_tree_list =
@@ -256,6 +260,7 @@ C & D --> 42(C)
 ```
 
 3.最后假设A获胜，传来第三轮数据，就是4强数据：{{A，B}，{C，D}，{A，C}，{A，空}}
+
 ``` mermaid
 graph BT
 A & B --> 41(A)
@@ -279,6 +284,7 @@ C & D --> 42(C)
 ```
 
 4.最后因为队伍只剩一个队伍了，所以直接层层到最后的数据
+
 ``` mermaid
 graph BT
 A & B --> 41(A)
