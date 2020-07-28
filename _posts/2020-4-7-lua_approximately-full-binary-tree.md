@@ -13,8 +13,6 @@ tags:
     - Shader
 ---
 
-2020-4-7-lua_approximately-full-binary-tree
-
 # Lua实现近似满二叉树
 
 ## 环境
