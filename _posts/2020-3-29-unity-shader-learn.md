@@ -615,24 +615,21 @@ Shader "..."
 #### 7.1 代码补全工具
 
 ## 8 资料  
-书籍
-- 《Unity Shader入门精要》
-- 《Unity着色器和屏幕开发秘笈》
-- 《Unity3D ShaderLab》
-
-官网  
-- https://renderdoc.org/
-- https://www.nvidia.com/en-us/drivers/cg-toolkit-15/
-
-博客  
-- http://dingxiaowei.cn/2020/01/01/
-- https://gameinstitute.qq.com/community/detail/122725
-- https://zhuanlan.zhihu.com/p/74622572
-
-屏幕后处理  
-- https://blog.csdn.net/zxc244603934/article/details/88384812
-- https://blog.csdn.net/cgy56191948/article/details/100665580
-- https://blog.csdn.net/cgy56191948/article/details/100773992
+- 书籍
+  - 《Unity Shader入门精要》
+  - 《Unity着色器和屏幕开发秘笈》
+  - 《Unity3D ShaderLab》
+- 官网  
+  - https://renderdoc.org/
+  - https://www.nvidia.com/en-us/drivers/cg-toolkit-15/
+- 博客  
+  - http://dingxiaowei.cn/2020/01/01/
+  - https://gameinstitute.qq.com/community/detail/122725
+  - https://zhuanlan.zhihu.com/p/74622572
+- 屏幕后处理  
+  - https://blog.csdn.net/zxc244603934/article/details/88384812
+  - https://blog.csdn.net/cgy56191948/article/details/100665580
+  - https://blog.csdn.net/cgy56191948/article/details/100773992
 
 <!---
 数学函数的图
