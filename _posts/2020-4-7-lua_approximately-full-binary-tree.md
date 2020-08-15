@@ -25,21 +25,21 @@ tags:
 ``` Lua
 self.guess_recursion_list = 
 {
-  {{}},
-  {{}, {}},
-  {{}, {}, {}, {}},
-  {{}, {}, {}, {}, {}, {}, {}, {}},
-  {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}},
+  {{ }},
+  {{ }, { }},
+  {{ }, { }, { }, { }},
+  {{ }, { }, { }, { }, { }, { }, { }, { }},
+  {{ }, { }, { }, { }, { }, { }, { }, { }, { }, { }, { }, { }, { }, { }, { }, { }},
 }
 --[[
 也就是相当于
 self.guess_recursion_list = 
 {
-  [1] = {[1] = {}},
-  [2] = {[1] = {}, [2] = {}},
-  [3] = {[1] = {}, [2] = {}, [3] = {}, [4] = {}},
-  [4] = {[1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {}, [6] = {}, [7] = {}, [8] = {}},
-  [5] = {[1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {}, [6] = {}, [7] = {}, [8] = {}, [9] = {}, [10] = {}, [11] = {}, [12] = {}, [13] = {}, [14] = {}, [15] = {}, [16] = {}},
+  [1] = {[1] = { }},
+  [2] = {[1] = { }, [2] = { }},
+  [3] = {[1] = { }, [2] = { }, [3] = { }, [4] = { }},
+  [4] = {[1] = { }, [2] = { }, [3] = { }, [4] = { }, [5] = { }, [6] = { }, [7] = { }, [8] = { }},
+  [5] = {[1] = { }, [2] = { }, [3] = { }, [4] = { }, [5] = { }, [6] = { }, [7] = { }, [8] = { }, [9] = { }, [10] = { }, [11] = { }, [12] = { }, [13] = { }, [14] = { }, [15] = { }, [16] = { }},
 }
 --]]
 ```
@@ -67,9 +67,9 @@ function CreateRecursionList(degree)
 					total_node_num = total_node_num * 2
 				end
 			end
-			self.guess_recursion_list[cur_degree] = self.guess_recursion_list[cur_degree] or {}
+			self.guess_recursion_list[cur_degree] = self.guess_recursion_list[cur_degree] or { }
 			for i = 1, total_node_num do
-				self.guess_recursion_list[cur_degree][i] = {}
+				self.guess_recursion_list[cur_degree][i] = { }
 			end
 			cur_degree = cur_degree + 1
 		end
@@ -92,16 +92,16 @@ CreateRecursionList(5)
 链表实现：
 
 ``` Lua
-local BinaryTreeNode = {}
+local BinaryTreeNode = { }
 function BinaryTreeNode:SetData(data)
 	self.data = data
 end
 BinaryTreeNode.__index = BinaryTreeNode
 function BinaryTreeNode.New(node_parent, data)
 	local temp = {
-		lchild = {},
-		rchild = {},
-		data = data or {},
+		lchild = { },
+		rchild = { },
+		data = data or { },
 	}
 	setmetatable(temp, BinaryTreeNode)
 	return temp
@@ -140,33 +140,33 @@ self.guess_binary_tree_list =
   {
       lchild = 
       {
-        lchild = {lchild = {}, data = {}, rchild = {}},
-        data = {},
-        rchild = {lchild = {}, data = {}, rchild = {}},
+        lchild = {lchild = { }, data = { }, rchild = { }},
+        data = { },
+        rchild = {lchild = { }, data = { }, rchild = { }},
       },
-      data = {},
+      data = { },
       rchild = 
       {
-        lchild = {lchild = {}, data = {}, rchild = {}},
-        data = {},
-        rchild = {lchild = {}, data = {}, rchild = {}},
+        lchild = {lchild = { }, data = { }, rchild = { }},
+        data = { },
+        rchild = {lchild = { }, data = { }, rchild = { }},
       },
   },
-  data = {},
+  data = { },
   rchild = 
   {
       lchild = 
       {
-        lchild = {lchild = {}, data = {}, rchild = {}},
-        data = {},
-        rchild = {lchild = {}, data = {}, rchild = {}},
+        lchild = {lchild = { }, data = { }, rchild = { }},
+        data = { },
+        rchild = {lchild = { }, data = { }, rchild = { }},
       },
-      data = {},
+      data = { },
       rchild = 
       {
-        lchild = {lchild = {}, data = {}, rchild = {}},
-        data = {},
-        rchild = {lchild = {}, data = {}, rchild = {}},
+        lchild = {lchild = { }, data = { }, rchild = { }},
+        data = { },
+        rchild = {lchild = { }, data = { }, rchild = { }},
       },
   }
 }
@@ -211,7 +211,7 @@ graph BT
 
 现在有一个近似于上面的竞猜面板，会从多只队伍用一种规则筛选出16强，然后再筛选出8强，然后再筛选出4强，再筛选出2强，最后得到最后的冠军队伍，很明显，我们的数据是从下面开始记录起来的，而且每上一层的数据是下一层数据的两个中的其中一个，也就是下面的队伍501和队伍502，最后获胜队伍是501的话，那41的位置就是501，依次类推其他的节点获胜情况。
 
-1.现在的问题就是我们需要像下面的图一样显示出数据来，但是服务器传来的数据为对阵信息，假设第一次的16强信息只有四个队伍进来，也就是：{{A，B}，{C，D}}
+1.现在的问题就是我们需要像下面的图一样显示出数据来，但是服务器传来的数据为对阵信息，假设第一次的16强信息只有四个队伍进来，也就是：{ { A，B }，{ C，D } }
 
 ``` mermaid
 graph BT
@@ -235,7 +235,7 @@ C & D --> 42(fa:fa-spinner)
 21(fa:fa-spinner) & 22(fa:fa-spinner) --> 11(fa:fa-spinner)
 ```
 
-2.然后第二轮，传来8强数据：{{A，B}，{C，D}，{A，C}}
+2.然后第二轮，传来8强数据：{ { A，B }，{ C，D }，{ A，C } }
 
 ``` mermaid
 graph BT
@@ -259,7 +259,7 @@ C & D --> 42(C)
 21(fa:fa-spinner) & 22(fa:fa-spinner) --> 11(fa:fa-spinner)
 ```
 
-3.最后假设A获胜，传来第三轮数据，就是4强数据：{{A，B}，{C，D}，{A，C}，{A，空}}
+3.最后假设A获胜，传来第三轮数据，就是4强数据：{ { A，B }，{ C，D }，{ A，C }，{ A，空 } }
 
 ``` mermaid
 graph BT
